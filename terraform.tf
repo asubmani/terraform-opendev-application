@@ -8,8 +8,8 @@ data "terraform_remote_state" "core" {
 }
 
 provider "kubernetes" {
-  host       = "https://${data.terraform_remote_state.core.k8s_master_dns}"
-  client_certificate = "${data.terraform_remote_state.core.k8s_client_cert}"
-  client_key = "${data.terraform_remote_state.core.k8s_client_key}"
+  host                   = "https://${data.terraform_remote_state.core.k8s_master_dns}"
+  client_certificate     = "${data.terraform_remote_state.core.k8s_client_cert}"
+  client_key             = "${data.terraform_remote_state.core.k8s_client_key}"
   cluster_ca_certificate = "${data.terraform_remote_state.core.k8s_cluster_ca_cert}"
 }
