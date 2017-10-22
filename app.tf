@@ -1,9 +1,9 @@
 resource "kubernetes_pod" "app" {
   metadata {
-    name = "opendev-app"
+    name = "${var.namespace}-app"
 
     labels {
-      App = "opendev-app"
+      App = "${var.namespace}-app"
     }
   }
 
@@ -21,7 +21,7 @@ resource "kubernetes_pod" "app" {
 
 resource "kubernetes_service" "app" {
   metadata {
-    name = "opendev-app"
+    name = "${var.namespace}-app"
   }
 
   spec {
