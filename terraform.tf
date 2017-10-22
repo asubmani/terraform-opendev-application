@@ -6,6 +6,11 @@ data "terraform_remote_state" "core" {
     key                  = "core.terraform.tfstate"
   }
 }
+terraform {
+  backend "atlas" {
+    name         = "nicj/terraform-opendev-application"
+  }
+}
 
 provider "kubernetes" {
   host                   = "https://${data.terraform_remote_state.core.k8s_master_dns}"
