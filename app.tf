@@ -1,9 +1,9 @@
-resource "kubernetes_pod" "quake" {
+resource "kubernetes_pod" "app" {
   metadata {
-    name = "quake-client"
+    name = "opendev-app"
 
     labels {
-      App = "quakeclient"
+      App = "opendev-app"
     }
   }
 
@@ -19,14 +19,14 @@ resource "kubernetes_pod" "quake" {
   }
 }
 
-resource "kubernetes_service" "quake" {
+resource "kubernetes_service" "app" {
   metadata {
-    name = "quake-client"
+    name = "opendev-app"
   }
 
   spec {
     selector {
-      App = "${kubernetes_pod.quake.metadata.0.labels.App}"
+      App = "${kubernetes_pod.app.metadata.0.labels.App}"
     }
 
     port {
