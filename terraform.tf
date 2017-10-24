@@ -6,6 +6,7 @@ data "terraform_remote_state" "core" {
     key                  = "core.terraform.tfstate"
   }
 }
+
 terraform {
   backend "atlas" {
     name         = "nicj/terraform-opendev-application"
