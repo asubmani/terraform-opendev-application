@@ -1,5 +1,6 @@
 data "terraform_remote_state" "core" {
   backend = "azure"
+
   config {
     storage_account_name = "nictfremotestate"
     container_name       = "opendev"
@@ -9,7 +10,7 @@ data "terraform_remote_state" "core" {
 
 terraform {
   backend "atlas" {
-    name         = "nicj/terraform-opendev-application"
+    name = "nicj/terraform-opendev-application"
   }
 }
 

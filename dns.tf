@@ -1,5 +1,4 @@
-provider "dnsimple" {
-}
+provider "dnsimple" {}
 
 # Create a record
 resource "dnsimple_record" "www" {

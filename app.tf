@@ -12,10 +12,12 @@ resource "kubernetes_pod" "app" {
       image = "hashicorp/http-echo:latest"
       name  = "http-echo"
 
-     args = [
-      "-listen", ":8080",
-      "-text", "OpenDev Rocks",
-     ]
+      args = [
+        "-listen",
+        ":8080",
+        "-text",
+        "Hello Open Dev",
+      ]
 
       port {
         container_port = 8080
@@ -26,7 +28,7 @@ resource "kubernetes_pod" "app" {
 
 resource "kubernetes_service" "app" {
   metadata {
-    name = "${var.namespace}-app-test"
+    name = "${var.namespace}-app"
   }
 
   spec {
