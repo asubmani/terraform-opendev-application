@@ -1,0 +1,16 @@
+# Azure settings
+export TF_VAR_subscription_id="xxxxxxxx"
+export TF_VAR_client_id="xxxxxxxx"
+export TF_VAR_client_secret="xxxxxxxx"
+export TF_VAR_tenant_id="xxxxxxxx"
+
+# FOR REMOTE STORAGE ACCOUNT
+export ARM_ACCESS_KEY="xxxxxxxx"
+export REMOTE_STATE_ACCOUNT="nictfremotestate"
+
+# DNSimple
+export DNSIMPLE_TOKEN=xxxxxxxxx
+export DNSIMPLE_ACCOUNT=xxxx
+
+# Atlas
+export ATLAS_TOKEN=xxxxxxxxx

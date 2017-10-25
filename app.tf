@@ -9,38 +9,29 @@ resource "kubernetes_pod" "app" {
 
   spec {
     container {
-      image = "mwrock/np-mongo:latest"
-      name  = "mongo"
+      image = "hashicorp/http-echo:latest"
+      name  = "http-echo"
 
-      port {
-        container_port = 27017
-      }
-    }
-
-    container {
-      image = "mwrock/national-parks:latest"
-      name  = "national-parks"
-      args = [
-        "-bind", "database:np-mongodb.default",
-        "-peer", "localhost",
-      ]
+     args = [
+      "-listen", ":8080",
+      "-text", "OpenDev Rocks",
+     ]
 
       port {
         container_port = 8080
       }
     }
-
   }
 }
 
 resource "kubernetes_service" "app" {
   metadata {
-    name = "${var.namespace}-app"
+    name = "${var.namespace}-app-test"
   }
 
   spec {
     selector {
-      App = "${kubernetes_pod.app.metadata.0.labeles.App}"
+      App = "${kubernetes_pod.app.metadata.0.labels.App}"
     }
 
     port {
